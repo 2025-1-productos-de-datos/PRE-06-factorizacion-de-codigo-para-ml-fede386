@@ -28,15 +28,3 @@ x_train, x_test, y_train, y_test = prepare_data(
 # entrenar el modelo
 estimator = ElasticNet(alpha=0.5, l1_ratio=0.5, random_state=12345)
 estimator.fit(x_train, y_train)
-
-
-
-# Metricas de error durante entrenamiento
-mse, mae, r2 = calculate_metrics(x_train, y_train, estimator)
-print_metrics("Training metrics", mse, mae, r2)
-
-# Metricas de error durante testing
-mse, mae, r2 = calculate_metrics(x_test, y_test, estimator)
-print_metrics("Testing metrics", mse, mae, r2)
-
-save_model_if_better(estimator, x_test, y_test)
