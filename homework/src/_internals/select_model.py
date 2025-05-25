@@ -3,6 +3,7 @@ from sklearn.neighbors import KNeighborsRegressor
 
 
 def select_model(args):
+    """Select the model based on the provided arguments."""
     if args.model == "elasticnet":
         return ElasticNet(alpha=args.alpha, l1_ratio=args.l1_ratio)
     elif args.model == "knn":

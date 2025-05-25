@@ -9,7 +9,6 @@ FILE_PATH = "data/winequality-red.csv"
 TEST_SIZE = 0.25
 RANDOM_STATE = 123456
 
-
 def main():
     args = parse_argument()
     model = select_model(args)
@@ -20,7 +19,6 @@ def main():
         random_state=RANDOM_STATE,
     )
 
-    # Fit the model
     model.fit(x_train, y_train)
 
     mse, mae, r2 = calculate_metrics(model, x_train, y_train)
@@ -28,11 +26,8 @@ def main():
 
     mse, mae, r2 = calculate_metrics(model, x_test, y_test)
     print_metrics("Testing metrics", mse, mae, r2)
-
+    
     save_model_if_better(model, x_test, y_test)
-
-
-# python homework\src\main.py --model elasticket --l_ratio 0.1 --alpha 1
 
 if __name__ == "__main__":
     main()
